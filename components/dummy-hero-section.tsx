@@ -1,7 +1,12 @@
+const BAR_HEIGHTS = Array.from(
+  { length: 40 },
+  (_, i) => 20 + ((i * 37 + 13) % 81)
+)
+
 export function DummyHeroSection() {
   return (
-    <section className="relative w-full flex justify-center -mt-20 z-30 pb-24">
-      <div className="w-[90%] max-w-5xl bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100 flex min-h-[500px]">
+    <section className="relative w-full flex justify-center -mt-[-150px] z-30 pb-24">
+      <div className="w-[95%] max-w-7xl bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100 flex min-h-[700px]">
         {/* Sidebar */}
         <div className="w-64 bg-[#3a3a3a] text-white p-6 flex flex-col gap-6">
           <div className="flex items-center gap-3">
@@ -48,7 +53,7 @@ export function DummyHeroSection() {
         </div>
 
         {/* Main Content Area */}
-        <div className="flex-1 bg-white p-8">
+        <div className="flex-1 bg-white p-8 flex flex-col">
           <div className="flex justify-between items-center mb-8">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-gray-200 overflow-hidden">
@@ -84,12 +89,12 @@ export function DummyHeroSection() {
           </div>
           
           {/* Dummy Chart Area */}
-          <div className="h-48 w-full flex items-end gap-1 mb-8 border-b border-gray-100 pb-4">
-            {Array.from({ length: 40 }).map((_, i) => (
+          <div className="flex-1 w-full flex items-end gap-1 mb-8 border-b border-gray-100 pb-4 min-h-[300px]">
+            {BAR_HEIGHTS.map((height, i) => (
               <div 
                 key={i} 
                 className="w-full bg-gray-200 rounded-t-sm" 
-                style={{ height: `${Math.random() * 80 + 20}%` }}
+                style={{ height: `${height}%` }}
               ></div>
             ))}
           </div>

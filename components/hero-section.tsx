@@ -38,12 +38,12 @@ export function HeroSection() {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
-      className="relative flex h-[100dvh] md:h-screen md:min-h-[700px] w-full flex-col items-center justify-start pt-32 sm:pt-40 md:pt-20 overflow-hidden bg-white md:pb-8 snap-start"
+      className="relative flex h-[100dvh] md:h-screen md:min-h-[700px] w-full flex-col items-center justify-start pt-32 sm:pt-40 md:pt-16 xl:pt-12 overflow-hidden bg-white md:pb-8 snap-start"
     >
       {/* LEFT IMAGES (z-10: Behind Dashboard) */}
       <div className="pointer-events-none absolute inset-0 z-10 mix-blend-multiply hidden md:block">
         {/* Base Image */}
-        <div className="absolute top-[-0%] left-[-15%] h-[100%] w-[60%]">
+        <div className="absolute top-[-0%] left-[-15%] xl:left-[-18%] 2xl:left-[-20%] h-[100%] w-[60%]">
           <Image
             src="/herosection/Left1.jpg"
             alt="Left Mountain"
@@ -54,7 +54,7 @@ export function HeroSection() {
         </div>
         {/* Overlay Image with Mask */}
         <div className="absolute inset-0 transition-opacity duration-700 ease-out" style={maskStyle}>
-          <div className="absolute top-[-0%] left-[-15%] h-[100%] w-[60%]">
+          <div className="absolute top-[-0%] left-[-15%] xl:left-[-18%] 2xl:left-[-20%] h-[100%] w-[60%]">
             <Image
               src="/herosection/Left2.jpg"
               alt="Left Mountain Overlay"
@@ -69,7 +69,7 @@ export function HeroSection() {
       {/* RIGHT IMAGES (z-30: Above Dashboard) */}
       <div className="pointer-events-none absolute inset-0 z-30 mix-blend-multiply">
         {/* Base Image */}
-        <div className="absolute right-[-50%] sm:right-[-10%] md:right-[-10%] top-[20%] md:top-[-0%] h-[80%] md:h-[100%] w-[120%] md:w-[60%]">
+        <div className="absolute right-[-50%] sm:right-[-10%] md:right-[-10%] xl:right-[-15%] 2xl:right-[-18%] top-[20%] md:top-[-0%] h-[80%] md:h-[100%] w-[120%] md:w-[60%]">
           <Image
             src="/herosection/Right1.jpg"
             alt="Right Mountain"
@@ -80,7 +80,7 @@ export function HeroSection() {
         </div>
         {/* Overlay Image with Mask */}
         <div className="absolute inset-0 transition-opacity duration-700 ease-out" style={maskStyle}>
-          <div className="absolute right-[-50%] sm:right-[-30%] md:right-[-10%] top-[20%] md:top-[-0%] h-[80%] md:h-[100%] w-[120%] md:w-[60%]">
+          <div className="absolute right-[-50%] sm:right-[-30%] md:right-[-10%] xl:right-[-15%] 2xl:right-[-18%] top-[20%] md:top-[-0%] h-[80%] md:h-[100%] w-[120%] md:w-[60%]">
             <Image
               src="/herosection/Right2.jpg"
               alt="Right Mountain Overlay"
@@ -93,23 +93,23 @@ export function HeroSection() {
       </div>
 
       {/* CONTENT (z-40: Above Everything) */}
-      <div className="relative z-40 mx-auto mb-8 flex max-w-4xl flex-col items-center px-4 text-center pointer-events-none">
-        <h2 className="mb-2 text-[10px] md:text-xs font-semibold tracking-wider text-gray-400 uppercase">
+      <div className="relative z-40 mx-auto mb-6 flex max-w-3xl xl:max-w-4xl flex-col items-center px-4 text-center pointer-events-none">
+        <h2 className="mb-2 text-[10px] md:text-[11px] xl:text-xs font-semibold tracking-wider text-gray-400 uppercase">
           Finance Reimagined
         </h2>
-        <h1 className="mb-4 text-3xl sm:text-4xl md:text-6xl font-medium tracking-tight text-gray-900 leading-tight md:leading-normal">
+        <h1 className="mb-3 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-medium tracking-tight text-gray-900 leading-tight md:leading-normal">
           <span className="text-gray-400">Automations and AI</span>
           <br />
           for Debt Collections Agencies
         </h1>
-        <p className="max-w-2xl text-xs sm:text-sm md:text-lg font-light text-gray-400">
+        <p className="max-w-xl text-[11px] sm:text-xs md:text-sm xl:text-base font-light text-gray-400">
           Automations and AI for Debt Collections Agencies
         </p>
       </div>
 
       {/* DASHBOARD (z-20: Above Left Image, Behind Right Image) */}
       <div className="relative z-20 flex w-full justify-center md:mt-2 h-0 md:h-auto">
-        <div className="w-[1024px] shrink-0 origin-top scale-[0.35] sm:scale-[0.45] md:scale-80">
+        <div className="w-[1024px] shrink-0 origin-top scale-[0.35] sm:scale-[0.45] md:scale-[0.55] lg:scale-[0.6] xl:scale-[0.65] 2xl:scale-[0.7]">
           <DummyHeroSection />
         </div>
       </div>

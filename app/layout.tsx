@@ -41,7 +41,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased snap-y snap-mandatory", fontMono.variable, "font-sans", figtree.variable)}
+      className={cn("antialiased scroll-smooth snap-y snap-mandatory", fontMono.variable, "font-sans", figtree.variable)}
     >
       <body>
         <ThemeProvider>

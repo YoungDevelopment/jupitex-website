@@ -121,7 +121,7 @@ export function ScrollTextSection() {
       <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden z-10 pointer-events-none">
         
         <div 
-          className="relative w-full max-w-5xl h-[250px] px-6 text-center flex items-center justify-center pointer-events-auto"
+          className="relative w-full max-w-4xl xl:max-w-5xl h-[250px] px-6 text-center flex items-center justify-center pointer-events-auto"
           style={{ opacity: "var(--scroll-opacity)" }}
         >
           <AnimatePresence>
@@ -143,7 +143,7 @@ export function ScrollTextSection() {
                   base={
                     <DiaTextReveal 
                       text={LINES[activeIndex]}
-                      className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-center"
+                      className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-5xl font-bold tracking-tight text-center"
                       colors={["#ffedd5", "#fed7aa", "#fdba74", "#fb923c", "#f97316", "#ea580c"]}
                       textColor="#1f2937" 
                       delay={0}
@@ -151,7 +151,7 @@ export function ScrollTextSection() {
                     />
                   }
                   hover={
-                    <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-center text-background">
+                    <span className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-5xl font-bold tracking-tight text-center text-background">
                       {LINES[activeIndex]}
                     </span>
                   }

@@ -2,6 +2,7 @@ import React from "react";
 import { SectionWrapper } from "@/components/section-wrapper";
 import ScrollReveal from "./ScrollReveal";
 import { TextAnimate } from "@/components/ui/text-animate";
+import { KineticText } from "@/components/ui/kinetic-text";
 
 interface SectionLayoutProps {
   title: string;
@@ -39,14 +40,11 @@ export function SectionLayout({
                 >
                   _
                 </TextAnimate>
-                <TextAnimate
-                  animation="blurInUp"
-                  by="character"
-                  once
+                <KineticText
+                  text={title}
+                  as="h2"
                   className={`text-display-hero font-title ${titleColor} text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold ml-2`}
-                >
-                  {title}
-                </TextAnimate>
+                />
               </div>
             </div>
           </ScrollReveal>

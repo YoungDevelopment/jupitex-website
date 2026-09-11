@@ -38,10 +38,10 @@ export function HeroSection() {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
-      className="relative flex h-screen min-h-[700px] w-full flex-col items-center justify-start pt-20 overflow-hidden bg-white pb-8"
+      className="relative flex h-[100dvh] md:h-screen md:min-h-[700px] w-full flex-col items-center justify-start pt-32 sm:pt-40 md:pt-20 overflow-hidden bg-white md:pb-8 snap-start"
     >
       {/* LEFT IMAGES (z-10: Behind Dashboard) */}
-      <div className="pointer-events-none absolute inset-0 z-10 mix-blend-multiply">
+      <div className="pointer-events-none absolute inset-0 z-10 mix-blend-multiply hidden md:block">
         {/* Base Image */}
         <div className="absolute top-[-0%] left-[-15%] h-[100%] w-[60%]">
           <Image
@@ -69,7 +69,7 @@ export function HeroSection() {
       {/* RIGHT IMAGES (z-30: Above Dashboard) */}
       <div className="pointer-events-none absolute inset-0 z-30 mix-blend-multiply">
         {/* Base Image */}
-        <div className="absolute right-[-10%] top-[-0%] h-[100%] w-[60%]">
+        <div className="absolute right-[-50%] sm:right-[-10%] md:right-[-10%] top-[20%] md:top-[-0%] h-[80%] md:h-[100%] w-[120%] md:w-[60%]">
           <Image
             src="/herosection/Right1.jpg"
             alt="Right Mountain"
@@ -80,7 +80,7 @@ export function HeroSection() {
         </div>
         {/* Overlay Image with Mask */}
         <div className="absolute inset-0 transition-opacity duration-700 ease-out" style={maskStyle}>
-          <div className="absolute right-[-10%] top-[-0%] h-[100%] w-[60%]">
+          <div className="absolute right-[-50%] sm:right-[-30%] md:right-[-10%] top-[20%] md:top-[-0%] h-[80%] md:h-[100%] w-[120%] md:w-[60%]">
             <Image
               src="/herosection/Right2.jpg"
               alt="Right Mountain Overlay"
@@ -94,22 +94,24 @@ export function HeroSection() {
 
       {/* CONTENT (z-40: Above Everything) */}
       <div className="relative z-40 mx-auto mb-8 flex max-w-4xl flex-col items-center px-4 text-center pointer-events-none">
-        <h2 className="mb-2 text-xs font-semibold tracking-wider text-gray-400 uppercase">
+        <h2 className="mb-2 text-[10px] md:text-xs font-semibold tracking-wider text-gray-400 uppercase">
           Finance Reimagined
         </h2>
-        <h1 className="mb-4 text-4xl font-medium tracking-tight text-gray-900 md:text-6xl">
+        <h1 className="mb-4 text-3xl sm:text-4xl md:text-6xl font-medium tracking-tight text-gray-900 leading-tight md:leading-normal">
           <span className="text-gray-400">Automations and AI</span>
           <br />
           for Debt Collections Agencies
         </h1>
-        <p className="max-w-2xl text-base font-light text-gray-400 md:text-lg">
+        <p className="max-w-2xl text-xs sm:text-sm md:text-lg font-light text-gray-400">
           Automations and AI for Debt Collections Agencies
         </p>
       </div>
 
       {/* DASHBOARD (z-20: Above Left Image, Behind Right Image) */}
-      <div className="relative z-20 flex w-full justify-center mt-2 scale-80 origin-top mb-[-10px]">
-        <DummyHeroSection />
+      <div className="relative z-20 flex w-full justify-center md:mt-2 h-0 md:h-auto">
+        <div className="w-[1024px] shrink-0 origin-top scale-[0.35] sm:scale-[0.45] md:scale-80">
+          <DummyHeroSection />
+        </div>
       </div>
     </section>
   )

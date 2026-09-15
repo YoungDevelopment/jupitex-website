@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState, useCallback } from "react"
 import { AnimatePresence, motion } from "motion/react"
 import { DiaTextReveal } from "@/components/ui/dia-text-reveal"
 import { MagneticText } from "@/components/ui/morphing-cursor"
+import { RandomPixels } from "@/components/ui/random-pixels"
 
 const LINES = [
   "You want to implement AI Automations but not sure how to get started?",
@@ -16,6 +17,7 @@ const LINES = [
 export function ScrollTextSection() {
   const containerRef = useRef<HTMLElement>(null)
   const [activeIndex, setActiveIndex] = useState(0)
+  const [hasStartedScrolling, setHasStartedScrolling] = useState(false)
   
   // Custom cursor ball refs
   const ballRef = useRef<HTMLDivElement>(null)
@@ -44,13 +46,18 @@ export function ScrollTextSection() {
           const opacity = Math.pow(visibility, 2)
           containerRef.current.style.setProperty("--scroll-opacity", opacity.toString())
 
+          // If the section is visible and user scrolls, trigger the falling pixels
+          if (visibility > 0) {
+            setHasStartedScrolling(true)
+          }
+
           // Active Index Logic
           const scrollableDistance = rect.height - windowHeight
           let progress = -rect.top / scrollableDistance
           progress = Math.max(0, Math.min(1, progress))
 
           const sectionLength = 1 / LINES.length
-          let newIndex = Math.floor((progress + 0.05) / sectionLength)
+          let newIndex = Math.floor(progress / sectionLength)
           if (newIndex >= LINES.length) newIndex = LINES.length - 1
           if (newIndex < 0) newIndex = 0
 
@@ -120,6 +127,8 @@ export function ScrollTextSection() {
       {/* Sticky visual part */}
       <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden z-10 pointer-events-none">
         
+        <RandomPixels count={5} show={hasStartedScrolling} />
+
         <div 
           className="relative w-full max-w-4xl xl:max-w-5xl h-[250px] px-6 text-center flex items-center justify-center pointer-events-auto"
           style={{ opacity: "var(--scroll-opacity)" }}
@@ -166,7 +175,7 @@ export function ScrollTextSection() {
       {/* Snap Points to provide height and native CSS scrolling snap */}
       <div className="-mt-[100vh] relative z-0 w-full">
         {LINES.map((_, i) => (
-          <div key={i} className="h-screen w-full snap-start snap-always" />
+          <div key={i} className="h-[125vh] w-full snap-start snap-always" />
         ))}
       </div>
     </section>
